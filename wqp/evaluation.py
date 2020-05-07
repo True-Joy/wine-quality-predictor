@@ -16,4 +16,8 @@ def compute_model_metrics(model: Pipeline, x: pd.DataFrame, y: pd.DataFrame) -> 
         - mae: the mean absolute error
         - r2: the r2 score
     """
-    raise NotImplementedException()
+    predictions = model.predict(X=x)
+    rmse = np.sqrt(mean_squared_error(y, predictions))
+    mae = mean_absolute_error(y, predictions)
+    r2 = r2_score(y, predictions)
+    return dict(rmse=rmse, mae=mae, r2=r2)

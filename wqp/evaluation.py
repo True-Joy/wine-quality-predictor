@@ -1,28 +1,19 @@
-from sklearn.model_selection import train_test_split
-from typing import Optional, Tuple, Dict
+import numpy as np
 import pandas as pd
+from typing import Dict
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from sklearn.pipeline import Pipeline
 
 
-def fetch_csv_data(url: str, separator: Optional[str]) -> pd.DataFrame:
+def compute_model_metrics(model: Pipeline, x: pd.DataFrame, y: pd.DataFrame) -> Dict[str, float]:
     """
-    This functions fetch the CSV data from a given path (or url) and returns a Pandas DataFrame.
-    :param url: a string containing the address of the data (local path, url ...)
-    :param separator: an optional separator to override the default separator (comma)
-    :return: a Pandas Dataframe containing the loaded data
-    """
-    raise NotImplementedException()
-
-def build_train_test_sets(data: pd.DataFrame, label_col: str, train_size: float) -> \
-        Dict[str, Tuple[pd.DataFrame, pd.DataFrame]]:
-    """
-    A function to split the data into training and test sets.
-
-    :param data: a pandas dataframe
-    :param label_col: the label column name
-    :param train_size: flaot. The fraction of the whole dataset used for training.
-    :return: a Dictionary of key (string) - value (tuple of pandas dataframes) containing training and test data.
-    Dictionary keys:
-        - train: contains (train_x, train_y)
-        - test: contains (test_x, test_y
+    This function computes the performance metrics of a given model and returns them as a dictionary.
+    :param model: The machine learning model, as a Scikit Learn pipeline.
+    :param x: The features, as a Pandas DataFrame.
+    :param y: The response data, as a Pandas DataFrame.
+    :return: A dictionary, containing 3 key-values:
+        - rmse: the root mean square error
+        - mae: the mean absolute error
+        - r2: the r2 score
     """
     raise NotImplementedException()
